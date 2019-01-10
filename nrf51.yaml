@@ -1,2 +1,20 @@
 _svd: nrf51.svd
 
+"*":
+  "TASKS_*":
+    _add:
+      TASK:
+        lsb: 0
+        msb: 31
+    TASK:
+      _write:
+        TRIGGER: [1, "Trigger task"]
+
+  "EVENTS_*":
+    _add:
+      EVENT:
+        lsb: 0
+        msb: 31
+    EVENT:
+      CLEAR: [0, "Event signal clear"]
+      SET:   [1, "Event signal set"]
