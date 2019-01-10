@@ -615,9 +615,11 @@ def process_peripheral_register(ptag, rspec, register, update_fields=True):
                 if not fspec.startswith("_"):
                     field = register[fspec]
                     process_register_field(pname, rtag, fspec, field)
-    if rcount == 0:
-        raise MissingRegisterError("Could not find {}:{}"
-                                   .format(pname, rspec))
+
+    # Squelch this error to allow for using wildcards in both periphals & registers
+    #if rcount == 0:
+    #    raise MissingRegisterError("Could not find {}:{}"
+    #                               .format(pname, rspec))
 
 
 def process_peripheral(svd, pspec, peripheral, update_fields=True):
